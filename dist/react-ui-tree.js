@@ -88,6 +88,10 @@ module.exports = React.createClass({
     );
   },
   dragStart: function dragStart(id, dom, e) {
+    if (typeof this.props.handleClassName !== 'undefined'
+        && !e.target.classList.contains(this.props.handleClassName)) {
+      return;
+    }
     this.dragging = {
       id: id,
       w: dom.offsetWidth,
